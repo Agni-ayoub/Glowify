@@ -1,0 +1,179 @@
+:root {
+    --primary-bg: gray;
+    --highlight-color: #e61f7f;
+    --text-color-white: white;
+    --text-color-black: black;
+    --shadow-light: 0 10px 15px black;
+    --shadow-dark: 0 10px 30px white;
+    --transition-duration: 0.3s;
+}
+
+.firstInCards {
+    display: flex;
+    flex-shrink: 0;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2rem;
+    width: 30%;
+    min-width: 20rem;
+    height: 100%;
+    background-color: var(--primary-bg);
+    border: solid rgb(255, 255, 255);
+    box-shadow: var(--shadow-light);
+}
+.card:hover {
+    animation: none;
+    border: solid var(--highlight-color);
+    scale: 1.02;
+}
+.card:active{
+    scale: 1;
+}
+.cardContent {
+    display: flex;
+    background-color: rgba(167, 167, 167, 0.5);
+    box-shadow: var(--shadow-dark);
+    backdrop-filter: blur(2px);
+    height: 30rem;
+    margin: 1rem;
+    max-width: 90%;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 1rem;
+}
+
+.firstCard {
+    background: url('/src/data/homePage/firstCard.jpg') no-repeat center/cover;
+    animation: scaleImg 3s ease-in-out infinite;
+}
+
+.skinDrop {
+    border-radius: 100%;
+    width: 8rem;
+    height: 10rem;
+    transition: 1s;
+    box-shadow: 0 10px #af4752;
+    animation: changeColor 6s infinite;
+}
+
+@keyframes changeColor {
+    0%, 100% { box-shadow: 0 10px #d30f22; }
+    50% { box-shadow: 0 10px #865757; }
+}
+
+.skinDrop:hover {
+    scale: 1.1;
+    transform: rotate(-10deg);
+}
+
+.firstCard h1, .firstCard h4 {
+    font-family: "PT Sans", sans-serif;
+    text-align: center;
+    text-shadow: 0 5px 5px black;
+}
+
+.firstCard h1 {
+    color: var(--text-color-white);
+    letter-spacing: 0.3rem;
+}
+
+.firstCard h4 {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text-color-black);
+    letter-spacing: 0.15rem;
+    text-shadow: 0 5px 5px #af4752;
+}
+
+.cardButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12rem;
+    color: var(--text-color-white);
+    font-family: "PT Sans";
+    font-weight: 800;
+    font-size: large;
+    letter-spacing: 0.2rem;
+    background-color: var(--highlight-color);
+    height: 3.5rem;
+    border: none;
+    cursor: pointer;
+    transition: transform var(--transition-duration) ease-in-out;
+    transform-origin: bottom;
+    transform: scaleY(0);
+}
+
+.cardButton::after {
+    content: "";
+    transition: 0.2s ease-in-out;
+    position: absolute;
+    width: 0;
+    height: 3.5rem;
+    box-shadow: 0 0 15px white;
+}
+
+.cardButton:hover::after {
+    width: 12rem;
+}
+
+@keyframes scaleImg {
+    50% { scale: 1.05; }
+}
+
+.buttonBehind {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 7rem;
+    gap: 2rem;
+    overflow: hidden;
+}
+
+.smallContent {
+    transform-origin: top center;
+    transition: 0.2s ease-out;
+}
+
+.card:hover .buttonBehind .smallContent {
+    scale: 0;
+    height: 0;
+}
+
+.card:hover .cardButton {
+    transform: scaleY(1);
+}
+
+.secondCard {
+    background-image: url("/src/data/homePage/secondCard.jpg");
+}
+
+.thirdCard {
+    background-image: url("/src/data/homePage/thirdCard.jpg");
+}
+
+.thirdCard h1 {
+    letter-spacing: 0.1rem;
+}
+
+@media (max-width: 1100px) {
+    .firstInCards {
+        max-width: 40rem;
+        flex-direction: column;
+        gap: 3rem;
+    }
+    .card {
+        width: 100%;
+        height: 35rem;
+    }
+}

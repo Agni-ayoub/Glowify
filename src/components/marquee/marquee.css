@@ -1,0 +1,28 @@
+.marquee {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.marquee-inner {
+    display: inline-block;
+    animation: marquee 500s linear infinite;
+}
+
+.marquee-content {
+    display: inline-block;
+    font-size: 3rem;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgb(158, 59, 59);
+    letter-spacing: 0.2rem;
+    padding: 0 50px;
+    text-shadow: 0 10px 10px rgb(122, 115, 115);
+}
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}

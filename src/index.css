@@ -1,0 +1,10 @@
+*{
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    font-family: sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+button:active{
+    scale: 0.9 !important;
+}

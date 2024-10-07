@@ -1,0 +1,196 @@
+.productContainer{
+    margin: 0.5rem;
+    margin-top: 1rem;
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(5,1fr);
+}
+.product{
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+    border: 1px solid #e61f7f6b;
+    overflow: hidden;
+}
+.thumbnail{
+    width: 100%;
+    max-height: 15rem;
+    min-height: 13rem;
+}
+.thumbnail img{
+    transition: transform 0.6s ease-in-out;
+    width: 100%;
+    height: 100%;
+    max-width: 15rem;
+}
+.star{
+    font-size: 1.5rem;
+    color: rgb(240, 205, 8);
+}
+.underImg{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+}
+.title{
+    margin-top: 1rem;
+    padding: 0.1rem;
+    display: flex;
+    height: 36px;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-box-orient:vertical ;
+    -webkit-line-clamp: 2;
+    overflow-y: hidden;
+}
+.title p:hover{
+    color: #e61f7f;
+}
+.title p{
+    color: rgb(24, 23, 23);
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0.1rem;
+    line-height: 1.3rem;
+}
+.price{
+    display: flex;
+    gap: 0.6rem;
+    height: 2rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+.price p{
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #e61f7f;
+    letter-spacing: 0.1rem;
+}
+.price span{
+    color: #e61f7f;
+    text-decoration: line-through;
+    text-decoration-color: rgb(68, 67, 67);
+    text-decoration-style:wavy ;
+}
+.rating{
+    display: flex;
+    align-items: center;
+}
+.rating p{
+    color: rgb(37, 37, 37);
+    font-size: small;
+    font-weight: 700;
+}
+@media (max-width:1300px){
+    .productContainer{
+        grid-template-columns: repeat(5,1fr);
+    }
+}@media (max-width:1120px){
+    .productContainer{
+        grid-template-columns: repeat(4,1fr);
+    }
+}@media (max-width:900px){
+    .productContainer{
+        grid-template-columns: repeat(3,1fr);
+    }
+}@media (max-width:700px){
+    .productContainer{
+        grid-template-columns: repeat(2,1fr);
+    }
+}@media (max-width:600px){
+    .productContainer{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .product{
+        flex-direction: row;
+    }
+}
+.product:hover{
+    cursor: pointer;
+    background-color: #ff007b18;
+} 
+.moreProducts{
+    height: 3rem;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    display: flex;
+    width: 100%;
+    position: absolute;
+    top: 12rem;
+    left:0.3rem;
+    transform-origin: bottom ;
+    transform: scaleY(0);
+    transition: 0.3s ease-in-out;
+}
+.product:hover .moreProducts{
+    transform: scaleY(1);
+}
+.moreProducts .heartShop{
+    font-size: 2rem;
+    color: #c9126a;
+}
+.productsButtonShop {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color-white);
+    font-family: "PT Sans";
+    letter-spacing: 0.2rem;
+    background-color: var(--highlight-color);
+    height: 2.5rem;
+    width: 70%;
+    text-align: center ;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: transform var(--transition-duration) ease-in-out;
+    transform-origin: bottom;
+}
+.productsButtonShop::after {
+    content: "";
+    transition: 0.2s ease-in-out;
+    position: absolute;
+    width: 0;
+    height: 2.5rem;
+    box-shadow: 0 0 15px white;
+}
+.productsButtonShop:hover::after {
+    width: 100%;
+}
+.productsButtonShop:active{
+    scale: 0.9;
+}
+.brandName p{
+    font-size: small;
+    color: #c9126a;
+}
+.brandName{
+    position: absolute;
+    left: 0.5rem;
+}
+.product:hover img{
+    transform: rotate(-30deg) ;
+}
+.discount{
+    position: absolute;
+    top: 1rem;
+    right: 0.5rem;
+    background-color: rgb(43, 255, 0);
+    border-radius: 5rem 5rem 5rem 0rem;
+    width: 4.5rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.discount p{
+    font-weight: 800;
+    font-size: small;
+    color: rgb(0, 0, 0);
+}

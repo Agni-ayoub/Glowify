@@ -1,0 +1,331 @@
+.flashSales{
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+    width: 100%;
+}
+.flashSalesAllContainer{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    width: 90%;
+    justify-content: space-around;
+    background-color: #fde5f1;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 15px #303030;
+    height: 35rem;
+}
+.flashSalesHeader{
+    display: flex;
+    align-items: center;  
+    gap: 1rem;
+}
+.flashIcon{
+    position: absolute;
+    left:2.7rem;
+    font-size: 5rem;
+    color: #e61f7f;
+    transform-origin: bottom;
+    transition: 1s;
+}
+.flashIcon:hover{
+    color: #c9126a;
+}
+.flash{
+    position: relative;
+    gap: 2.6rem;
+    display: flex;
+    align-items: center;
+    font-family: "PT Sans", sans-serif;
+    font-size: 3rem;
+    color: #303030;
+}
+.salesP{
+    font-family: "PT Sans", sans-serif;
+    font-weight: 800;
+    font-size: 3rem;
+    color: #303030;
+    letter-spacing: 0.5rem;
+}
+.timer{
+    top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.timer div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+    width: 3rem;
+    height: 2rem;
+    border-radius: 1rem;
+}
+.timer div p{
+    color: white;
+    font-size: x-large;
+    letter-spacing: 0.2rem;
+}
+.dots{
+    font-size: x-large;
+    font-weight: 600;
+    color: #e61f7f;
+}
+.showMoreFlash{
+    color: #e61f7f;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+}
+.showMoreFlash::after{
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 2.5rem;
+    width: 0%;
+    height: 1px;
+    background-color: #e61f7f;
+    transform-origin: left;
+}
+.showMoreFlash:hover{
+    transition-delay: 0.6s ;
+    border-bottom: 1px solid #e61f7f;
+}
+.showMoreFlash:hover::after{
+    animation: lightUp 0.6s ease ;
+}
+@keyframes lightUp {
+    to{
+        width: 100%;
+    }
+} 
+.flashSalesTop{
+   display: flex;
+   flex-wrap: wrap;
+   height: fit-content;
+   width: 100%;
+   justify-content: space-around;
+}
+@media (max-width: 530px){
+    .timer{
+        gap: 0.1rem;
+    }
+    .timer div{
+        background-color: red;
+        width: 3rem;
+        height: 2.5rem;
+    }
+    .timer div p{
+        font-size: 1.5rem ;
+    }
+}
+.FlashProductContainer{
+    display: flex;
+    gap: 1rem;
+    height: 80%;
+    overflow-x: scroll ;
+    padding: 0.5rem;
+}
+.flashProduct{
+    display: flex;
+    flex-direction: column;
+    background-color: #f5abcfad;
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    border-radius: 1rem;
+}
+.flashProduct:hover{
+    background-color: #f781baad;
+}
+.flashProductImgDiv{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    margin: 0.5rem;
+    object-fit: contain;
+    background-color: rgb(235, 235, 235);
+    border-radius: 1rem;
+    overflow:hidden;
+}
+.flashProduct .flashProductImgDiv img{
+    transition: transform 0.6s ease-in-out;
+    width: 90%;
+}
+.flashUnderImg{
+    border-radius: 1rem;
+    width: 95%;
+    height: 13%;
+    transition: height 0.6s ease-in-out;
+    background-color: rgba(245, 245, 245, 0.795);
+    overflow: hidden ;
+}
+.flashProduct:hover .flashUnderImg{
+    height: 32%;
+}
+.flashProduct:hover .flashProductImgDiv img{
+    transform: rotate(-35deg);
+    -webkit-user-drag: none;
+}
+.flashPricePromoDiv{
+    background-color: #583fa8;
+    height: 2rem;
+    border-radius: 2rem;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flashPricePromoDiv p{
+    font-family: "Dancing Script";
+    color: white;
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+.flashTitle{
+    display: flex;
+    width: 100%;
+    height: 2.5rem;
+    overflow: hidden;
+    justify-content: center;
+    padding-top: 0.2rem;
+}
+.flashTitle p{
+    font-family: sans-serif;
+    font-weight: 600;
+    color: #303030;
+    letter-spacing: 0.1rem;
+    margin-left: 0.5rem;
+}
+.flashPrice{
+    margin-left: 0.5rem;
+}
+.flashPrice p{
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: #c9126a;
+}
+.flashPrice p::after{
+    font-weight: 600;
+    font-size: medium;
+    color: gray;
+    margin-left: 0.5rem;
+    text-decoration: line-through;
+    content: ""attr(data-price);
+}
+.flashProduct:hover .flashTitle p{
+    color: #e61f7f;
+    text-decoration: underline;
+}
+.flashRatingDiv{
+    margin-left: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: sans-serif;
+    font-size: small;
+    font-weight: 800;
+    color: #303030;
+}
+.flashRatingDiv .star{
+    font-size: 1.5rem;
+    color: rgb(224, 193, 14);
+}
+input[type="range"]::-webkit-slider-runnable-track{
+    display: non;
+}
+.stockTrack{
+    background: linear-gradient(to right,#ff0000aa ,#ffd000aa,#00ff0daa);
+    margin-left: 0.5rem;
+    border: 1px solid ;
+    border-radius: 1rem;
+    width: 90%;
+    height: 10px;
+}
+.filler{
+    border-radius: 1rem;
+    background: linear-gradient(to right,rgb(124, 121, 121),silver,rgb(58, 56, 56) ,rgb(29, 28, 28));
+    max-width: 100%;
+    height: 100%;
+}
+.stockLeft{
+    font-size: small;
+    font-family: sans-serif;
+    font-weight: 800;
+    color: red;
+    margin-left: 0.5rem;
+}
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #888; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    cursor:grab;
+    background-color: #dd3988; 
+}
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+.moreFlashProducts{
+    height: 3rem;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    display: flex;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    transform-origin: bottom ;
+    transform: scaleY(0);
+    transition: 0.3s ease-in-out;
+}
+.flashProduct:hover .moreFlashProducts{
+    transform: scaleY(1);
+}
+.moreFlashProducts .heart{
+    font-size: 2rem;
+    color: #c9126a;
+}
+.productsButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color-white);
+    font-family: "PT Sans";
+    letter-spacing: 0.2rem;
+    background-color: var(--highlight-color);
+    height: 2.5rem;
+    width: 10rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: transform var(--transition-duration) ease-in-out;
+    transform-origin: bottom;
+}
+.productsButton::after {
+    content: "";
+    transition: 0.2s ease-in-out;
+    position: absolute;
+    width: 0;
+    height: 2.5rem;
+    box-shadow: 0 0 15px white;
+}
+
+.productsButton:hover::after {
+    width: 10rem;
+}

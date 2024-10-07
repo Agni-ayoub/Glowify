@@ -1,0 +1,143 @@
+.notch{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 4rem;
+    font-weight: 600;
+    background-color:#ecdfdf;
+    color: rgb(54, 53, 53);
+}
+.notch :first-child{
+    min-width: max-content;
+    font-family: Arial;
+    padding-left: 1rem;
+}
+.notch :nth-child(2){
+    padding-right: 1rem;
+    cursor: pointer;
+}
+.notch :nth-child(2):hover{
+    color: #e61f7f ;
+}
+.sidePr{
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+   border-bottom: 1px solid #d10a6a;
+   height: 10rem;
+}
+.underAll{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+}
+.sideImg{
+    width:30%;
+}
+.sideImg img{
+    width: 100%;
+}
+.allNumber{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.sideSide{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: 100%;
+    justify-content: center;
+}
+input[type="number"] {
+    color: #d10a6a;
+    font-weight: 600;
+    text-align: center;
+    width: 40%;    
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px; 
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    height: 2rem;
+}
+
+input[type="number"]:hover {
+    border-color: #e61f7f;      
+    box-shadow: 0 0 10px #e61f7f; 
+}
+
+/* Styling for placeholder */
+input[type="number"]::placeholder {
+    color: #888;
+    opacity: 0.8; 
+}
+
+/* Disable spinner for Chrome */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* For Firefox to hide arrows */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Disabled state */
+input[type="number"]:disabled {
+    background-color: #f9f9f9; 
+    color: #ccc;                
+    cursor: not-allowed;       
+}
+.sym{
+    font-size: 1.7rem;
+    color:#888;
+    cursor: pointer;
+}
+.sym:hover{
+    color: #e61f7f;
+}
+.mi{
+    position: absolute;
+    left: 0.7rem;
+    top: 0;
+}
+.plu{
+    position: absolute;
+    left: 4.2rem;
+}
+.sideBtn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color-white);
+    font-family: "PT Sans";
+    letter-spacing: 0.2rem;
+    background-color: var(--highlight-color);
+    height: 2.5rem;
+    text-align: center ;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: transform var(--transition-duration) ease-in-out;
+    transform-origin: bottom;
+}
+.sideBtn::after {
+    content: "";
+    transition: 0.2s ease-in-out;
+    position: absolute;
+    width: 0;
+    height: 2.5rem;
+    box-shadow: 0 0 15px white;
+}
+.sideBtn:hover::after {
+    width: 100%;
+}
+.sideBtn:active{
+    scale: 0.9;
+}

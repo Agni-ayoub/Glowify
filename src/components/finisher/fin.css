@@ -1,0 +1,19 @@
+.fin{
+    border-top-right-radius: 100%  ;
+    border-top-left-radius: 100% ;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to left ,rgb(211, 38, 38),rgb(83, 80, 80),rgb(224, 82, 106),silver,rgb(179, 179, 46));
+    background-size: 300%;
+    animation: mb 6s ease-in-out infinite;
+}
+.fin img{
+    padding: 2rem;
+    width: 50%;
+}
+@keyframes mb {
+    50%{
+        background-position: 100%;
+    }
+}

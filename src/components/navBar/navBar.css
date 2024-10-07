@@ -1,0 +1,264 @@
+nav{
+    display: flex;
+    padding: 1rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    align-items: center;
+    height :4rem;
+    border-bottom: 1px solid #46454577;
+    gap: 1rem;
+}
+.logo{
+    border-bottom: solid #e61f7f;
+    animation: logo 1s;
+}
+@keyframes logo {
+    from { padding-left: 10rem ; transform: scale(1.5); opacity: 0; }
+  to { opacity: 1; }
+}
+.icon{
+    width: 1.5rem;
+}
+a{
+    text-decoration: none;
+    color: unset;
+}
+.searchDiv{
+    margin-left: 2rem;
+    transition: 0.6s ease-in-out;
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+input[type="search"]::-webkit-search-cancel-button{
+    display: none;
+}
+.searchDiv:hover{
+    scale: 1.01;
+}
+input[type="search"]{
+    height: 55px;
+    border-radius: 6px;
+    border: 1px solid rgba(48, 48, 48, 0.5);
+    width: 100%;
+    min-width: 15rem;
+    padding: 5px 60px 5px 25px;
+    outline: none;
+    font-size: larger;
+    margin-left: 1rem;
+}
+.searchIcon{
+    position: relative;
+    right: 3rem;
+    height: 35px;
+    width: 55px;
+    border: none;
+    background-color: transparent;
+    padding-bottom: 3px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+.searchIcon:hover{
+    color: red;
+}
+.accountNav, .bagNav{
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    width: 15rem;
+    gap: 0.5rem;
+    justify-content: center;
+    transition: 0.6s ease-in-out;
+    border-bottom: solid transparent;
+}
+.bagNumber{
+    position: absolute;
+}
+.bagNumber span{
+    position: relative;
+    top: -0.5rem;
+    right: 1.2rem;
+    background-color: #e61f7f;
+    padding: 0.2rem;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    border-radius: 50%;
+    font-size: 12px;
+    color: white;
+    font-weight: 600;
+}
+.bagText{
+    min-width: 3.3rem;
+}
+.userName{
+    min-width: 6rem;
+}
+.accountNav:hover, .bagNav:hover{
+    transition: 0.6s ease-in-out;
+    cursor: pointer;
+    color: #e61f7f;
+    scale: 1.1;
+}
+.bagNav:hover .bagNumber span{
+    transition: 1s;
+    background-color: silver;
+    color: black;
+}
+.border{
+    height: 2rem;
+    border-left: 0.1rem solid gray;
+}
+.bagIcon{
+    transition: 0.6s;
+}
+.bagNav:hover .bagIcon{
+    transform: rotate(35deg);
+}
+.bagNumber{
+    transition: 0.6s;
+}
+.bagNav:hover .bagNumber{
+    transform: rotate(-45deg);
+}
+.nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 3rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    border-bottom: 1px solid #46454577;
+}
+.navDivi{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.6s ease-in-out;
+    height: 3rem;
+    width: 100%;
+    max-width: 12rem;
+}
+.navDivi:hover{
+    background-color: #f85ea8;
+    color: white;
+}
+.allNav{
+    height: 9rem;
+}
+.small-logo{
+    font-size: 2.5rem;
+    scale: 1;
+    font-weight: 600;
+    color: #303030;
+    border-bottom: solid #e61f7f;
+    line-height: 2.2rem;
+    animation: forward 1s linear forwards;
+    display: none;
+}
+@keyframes forward {
+    from {transform: scale(1); opacity: 0; }
+  to { transform: scale(1.8); opacity: 1; }
+}
+@media (max-width : 935px) {
+    .logo{
+        display: none;
+    }
+    .small-logo{
+        display: block;
+    }
+    .small-logo p{
+        transition: 1s;
+        cursor: pointer;
+        color: #303030;
+    }
+    .small-logo:hover p{
+        rotate: 360deg;
+        scale: 1.1;
+    }
+    .bagNumber span{
+        right: -0.7rem;
+    }
+    .icon{
+        scale: 1.2;
+    }
+    .accountNav:hover, .bagNav:hover{
+        background-color: transparent;
+        border-color: #e61f7f;
+    }
+    .bagText{
+        display: none;
+    }
+    .accountNavText{
+        display: none;
+    }
+    .accountNav p, .bagNav p{
+        display: none;
+    }
+    .contact{
+        display: none;
+    }
+    .bagNav:hover .bagNumber{
+        padding-left: 1.5rem;
+        transform: rotate(45deg);
+    }
+    .accountNav, .bagNav{
+        width: 4rem;
+    }
+}
+.showMore{
+    background-color: #303030bd;
+    z-index: 1;
+    backdrop-filter: blur(10px);
+    top: 3rem;
+    left: 0;
+    position: absolute;
+    width: 25rem;
+    border-radius: 1rem;
+    border-top-left-radius: 0;
+    transition: 0.5s ease-in-out;
+    transform-origin: top;
+    cursor:initial;
+    height: 0;
+}
+.showMoreContact{
+    border-radius: 1rem;
+    border-top-right-radius: 0;
+    left: unset;
+    right: 0;
+}
+.navDivi:hover .showMore{
+    height: 15rem;
+}
+.menu{
+    display: none;
+}
+.menuIcon{
+    font-size: 2.5rem;
+    color: #303030;
+}
+@media (max-width: 630px) {
+    .bagNav{
+        display: none;
+    }
+    .accountNav{
+        display: none;
+    }
+    .border{
+        display: none;
+    }
+    .menu{
+        display: flex;
+    }
+    .searchDiv{
+        width: 16rem;
+        margin: 0;
+    }
+    nav{
+        justify-content: space-evenly;
+        padding-left: 3rem;
+        padding-right: 1rem;
+    }
+}
