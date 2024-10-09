@@ -8,11 +8,11 @@ import Brag from "../../components/brag/brag";
 import Feature from "../../components/features/feature";
 import Fin from "../../components/finisher/fin";
 import SideNav from "../../components/sideNav/sideNav";
-import { cartContext } from "../../main";
+import { globalContext } from "../../main";
 
 function HomePage(){
     const [sideNav, setSideNav] = useState(false);
-    const {cart,setCart} = useContext(cartContext); 
+    const {cart,setCart} = useContext(globalContext); 
     
 
     return (

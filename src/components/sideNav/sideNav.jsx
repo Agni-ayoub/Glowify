@@ -1,17 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./sideNav.css";
+import { get } from "../../../tools";
 
 export default function SideNav({sideNav, setSideNav}){
     const [products,setProducts] = useState([]);
     const BASE_URL = 'https://dummyjson.com';
-    useEffect(()=>{
-        const fetchData = async()=>{
-            const repsonce = await fetch(`${BASE_URL}/products`);
-            const data = await repsonce.json();
-            setProducts(data.products);
-        };
-        fetchData();
-    },[]);
+    get(setProducts, BASE_URL)
     return(
         (sideNav)?
         <div className="insideSide">

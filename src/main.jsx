@@ -1,15 +1,13 @@
 import { createRoot } from 'react-dom/client';
-import { createBrowserRouter, json, RouterProvider } from "react-router-dom";
+import { createBrowserRouter,RouterProvider } from "react-router-dom";
 import './index.css';
 import HomePage from './pages/homePage/homePage';
-import Redirect from '../redirect';
 import Shop from './pages/shop/shop';
-import { createContext, useEffect, useState } from 'react';
-
-export const cartContext = createContext(null);
+import { createContext, useState } from 'react';
+export const globalContext = createContext({});
 
 const Main = () => {
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState({});    
 
     const routes = createBrowserRouter([
         {
@@ -27,9 +25,9 @@ const Main = () => {
     ]);
 
     return (
-        <cartContext.Provider value={{ cart, setCart }}>
+        <globalContext.Provider value={{cart,setCart}}>
             <RouterProvider router={routes} />
-        </cartContext.Provider>
+        </globalContext.Provider>
     );
 }
 
