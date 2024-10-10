@@ -91,6 +91,8 @@ input[type="search"]{
     min-width: 3.3rem;
 }
 .userName{
+    width: max-content;
+    max-width: 12rem;
     min-width: 6rem;
 }
 .accountNav:hover, .bagNav:hover{
@@ -261,4 +263,7 @@ input[type="search"]{
         padding-left: 3rem;
         padding-right: 1rem;
     }
+}
+#profileImg{
+    width: 2rem;
 }

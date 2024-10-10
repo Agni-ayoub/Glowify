@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { FaStar, FaStarHalf } from "react-icons/fa6";
+
 export const formatRating = (rating) => {
     const fullStars = Math.floor(rating);
     const halfStar = rating % 1 !== 0;

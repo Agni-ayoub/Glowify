@@ -4,8 +4,7 @@ import { get } from "../../../tools";
 
 export default function SideNav({sideNav, setSideNav}){
     const [products,setProducts] = useState([]);
-    const BASE_URL = 'https://dummyjson.com';
-    get(setProducts, BASE_URL)
+    
     return(
         (sideNav)?
         <div className="insideSide">

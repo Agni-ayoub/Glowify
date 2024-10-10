@@ -1,13 +1,3 @@
-:root {
-    --primary-bg: gray;
-    --highlight-color: #e61f7f;
-    --text-color-white: white;
-    --text-color-black: black;
-    --shadow-light: 0 10px 15px black;
-    --shadow-dark: 0 10px 30px white;
-    --transition-duration: 0.3s;
-}
-
 .firstInCards {
     display: flex;
     flex-shrink: 0;

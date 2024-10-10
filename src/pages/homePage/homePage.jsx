@@ -12,9 +12,8 @@ import { globalContext } from "../../main";
 
 function HomePage(){
     const [sideNav, setSideNav] = useState(false);
-    const {cart,setCart} = useContext(globalContext); 
+    const {cart,setCart, auth} = useContext(globalContext); 
     
-
     return (
         <div className="homePage">
             {sideNav?

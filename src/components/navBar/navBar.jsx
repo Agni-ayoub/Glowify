@@ -2,13 +2,15 @@ import "./navBar.css";
 import {NavLink} from "react-router-dom";
 import { IoSearchOutline } from "react-icons/io5";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { globalContext } from "../../main";
+import { useContext } from "react";
 
 function NavBar(props){
     const setSideNav = props.setSideNav;
     const handleSideNav = ()=>{
         setSideNav(true)
     };    
-
+    const {auth} = useContext(globalContext); 
     return(
         <div className="allNav">
             <nav>
@@ -28,14 +30,14 @@ function NavBar(props){
                 </div>
                 <div className="border">
                 </div>
-                <div className="accountNav">
-                    <img src="/src/data/icons/account.svg" className="icon"/>
+                <NavLink to={auth?"":"/login"} className="accountNav">
+                    <img src={(auth)?auth?.image:"/src/data/icons/account.svg"} className="icon" id={auth?"profileImg":""} />
                     <div className="accountNavText">
                         <p className="userName">
-                            User Name
+                            {auth?.firstName} {auth?.lastName}
                         </p>
                     </div>
-                </div>
+                </NavLink>
                 <div className="border">
                 </div>
                 <div onClick={()=>handleSideNav()} className="bagNav">
