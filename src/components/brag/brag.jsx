@@ -1,10 +1,18 @@
+import { useContext, useRef } from "react";
 import "./brag.css"
 import { CiStar } from "react-icons/ci";
+import { globalContext } from "../../main";
 
 export default function Brag(){
+    const {flashSectionRef} = useContext(globalContext);
+    const scrollToSection = () => {
+        if (flashSectionRef.current) {
+          flashSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+      };
     return(
         <div className="brag">
-            <div className="bragOffers">
+            <div onClick={scrollToSection} className="bragOffers">
                 <p className="limitedOffers">
                     Limited Time Offers
                 </p>

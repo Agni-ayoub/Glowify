@@ -325,7 +325,9 @@ input[type="range"]::-webkit-slider-runnable-track{
     height: 2.5rem;
     box-shadow: 0 0 15px white;
 }
-
+.productsButton:active{
+    transform: scale(0.9);
+}
 .productsButton:hover::after {
     width: 10rem;
 }

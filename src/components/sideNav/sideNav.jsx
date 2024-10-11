@@ -1,56 +1,45 @@
-import { useState } from "react";
+import { useContext } from "react";
 import "./sideNav.css";
-import { get } from "../../../tools";
+import { globalContext } from "../../main";
+import { handleAdd, handleTake } from "../../../tools";
 
-export default function SideNav({sideNav, setSideNav}){
-    const [products,setProducts] = useState([]);
-    
-    return(
-        (sideNav)?
+export default function SideNav({ setSideNav }) {
+    const { cart, setCart, userId } = useContext(globalContext);
+    return (
         <div className="insideSide">
             <div className="notch">
-                <p>
-                    Your Car 0
-                </p>
-                <p onClick={()=> setSideNav(false)} >
-                    Close
-                </p>    
+                <p>Your Cart 0</p>
+                <p onClick={() => setSideNav(false)}>Close</p>
             </div>
             <div className="underAll">
-                {/*
-                    cart.map(elem=>{
-                        const matchingProducts = products.find(p=> elem.id === p.id);
-                        if(matchingProducts){
-                            return(
-                                <div key={elem.id} className="sidePr">
-                                    <div className="sideImg">
-                                        <img src={matchingProducts.thumbnail}/>
-                                    </div>
-                                    <div className="sideSide">
-                                        <div className="sifeTitle">
-                                            <p>
-                                                {matchingProducts.title}
-                                            </p>
-                                        </div>
-                                        <div className="allNumber">
-                                            <p onClick={()=>handleTake(elem)} className="mi sym">
-                                                -
-                                            </p>
-                                            <input type="number" value={elem.quantity} min={1} readOnly/>
-                                            <p onClick={()=> handleAdd(elem)} className="plu sym">
-                                                +
-                                            </p>
-                                        </div>
-                                        <button className="sideBtn">
-                                            More details
-                                        </button>
-                                    </div>
-                                </div>
-                            )
-                        }
-                    })
-                */}
+                {cart?.products?.map((elem) => (
+                    <div key={elem?.id} className="sidePr">
+                        <div className="sideImg">
+                            <img src={elem?.thumbnail} alt={elem?.title} />
+                        </div>
+                        <div className="sideSide">
+                            <div className="sideTitle">
+                                <p>{elem?.title}</p>
+                            </div>
+                            <div className="allNumber">
+                                <p onClick={()=>handleTake(elem,setCart,userId)} className="mi sym">
+                                    -
+                                </p>
+                                <input
+                                    type="number"
+                                    value={elem?.quantity}
+                                    min={1}
+                                    readOnly
+                                />
+                                <p onClick={() => handleAdd(elem,setCart,userId)} className="plu sym">
+                                    +
+                                </p>
+                            </div>
+                            <button className="sideBtn">More details</button>
+                        </div>
+                    </div>
+                ))}
             </div>
-        </div>:""
-    )
+        </div>
+    );
 }

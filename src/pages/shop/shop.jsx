@@ -1,15 +1,19 @@
 import NavBar from "../../components/navBar/navBar";
 import SideNav from "../../components/sideNav/sideNav";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IoHeartOutline } from "react-icons/io5"; 
 import "./shop.css";
-import { calcOriginalPrice, formatRating, get } from "../../../tools";
+import { addToCart, calcOriginalPrice, formatRating, get } from "../../../tools";
+import { globalContext } from "../../main";
 
 export default function Shop(){
-    const Base_Url = 'https://dummyjson.com/products';
+    const Base_Url = 'https://dummyjson.com/products?limit=0';
     const [sideNav, setSideNav] = useState(false);
     const [products, setProducts] = useState([]);
-    get(setProducts, Base_Url);
+    const {cart, setCart, userId} = useContext(globalContext);
+    useEffect(() => {
+        get(setProducts, Base_Url)
+      }, []);
     return(
         <div className="shop">
             {sideNav?
@@ -28,7 +32,9 @@ export default function Shop(){
                                     <img src={p.thumbnail} />
                                     <div className="moreProducts">
                                         <IoHeartOutline className="heartShop"/>
-                                        <div className="productsButtonShop">
+                                        <div
+                                            onClick={()=>addToCart(p,cart,setCart,userId)}
+                                            className="productsButtonShop">
                                             <p>
                                                 Add to Bag
                                             </p>
@@ -65,6 +71,11 @@ export default function Shop(){
                                         }
                                         <p>
                                             {p.rating}
+                                        </p>
+                                    </div>
+                                    <div    className="productsButtonShop productDetails">
+                                        <p>
+                                            Discover More
                                         </p>
                                     </div>
                                 </div>

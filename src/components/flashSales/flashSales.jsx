@@ -1,27 +1,31 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./flashSales.css"
 import { IoIosFlash } from "react-icons/io";
 import {  FaStar } from "react-icons/fa6";
 import { FaStarHalfAlt } from "react-icons/fa";
 import { IoHeartOutline } from "react-icons/io5";
-import { calcOriginalPrice, formatCountDown, get } from "../../../tools";
+import { addToCart, calcOriginalPrice, formatCountDown, get } from "../../../tools";
+import {globalContext} from "../../main";
 
 export default function FlashSales(){
     const [flashProducts, setFlashProducts] = useState([]);
     const Base_Url = 'https://dummyjson.com/products/category/beauty';
-    get(setFlashProducts,Base_Url);
+    const { userId, setCart, cart , flashSectionRef} = useContext(globalContext);
+    useEffect(()=>{
+        get(setFlashProducts,Base_Url);
+    },[])
     const [dueDate, setDueDate] = useState(new Date("Jan 1, 2025 00:00:00"));
     const [currtTime, setCurretTime] = useState(new Date().getTime());
     useEffect(()=>{
         const intervalId = setInterval(() => {
-            setCurretTime(new Date().getTime())
+            setCurretTime(new Date().getTime());
         }, 1000);
         return()=>{
             clearInterval(intervalId);
         }
     },[]);
     return(
-        <div className="flashSales">
+        <div ref={flashSectionRef} className="flashSales">
             <div className="flashSalesAllContainer">
                 <div className="flashSalesTop">
                     <div className="flashSalesHeader">
@@ -86,7 +90,9 @@ export default function FlashSales(){
                             <div key={p.id} className="flashProduct">
                                 <div className="flashProductImgDiv">
                                     <img src={p.thumbnail} />
-                                    <div className="moreFlashProducts">
+                                    <div
+                                        onClick={()=>addToCart(p,cart,setCart,userId)}
+                                        className="moreFlashProducts">
                                         <IoHeartOutline className="heart"/>
                                         <div className="productsButton">
                                             <p>

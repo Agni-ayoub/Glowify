@@ -34,18 +34,23 @@
     padding: 0.5rem;
 }
 .sideImg{
-    width:30%;
+    width:8rem;
 }
 .sideImg img{
     width: 100%;
+}
+.sideTitle{
+    width: 15rem;
 }
 .allNumber{
     display: flex;
     align-items: center;
     position: relative;
+    width: 6rem;
 }
 .sideSide{
     display: flex;
+    width: 100%;
     flex-direction: column;
     gap: 0.5rem;
     height: 100%;
@@ -55,7 +60,7 @@ input[type="number"] {
     color: #d10a6a;
     font-weight: 600;
     text-align: center;
-    width: 40%;    
+    width: 100%;    
     font-size: 16px;
     border: 2px solid #ccc;
     border-radius: 5px; 
@@ -108,7 +113,7 @@ input[type="number"]:disabled {
 }
 .plu{
     position: absolute;
-    left: 4.2rem;
+    right: 0.7rem;
 }
 .sideBtn {
     position: relative;
@@ -126,6 +131,7 @@ input[type="number"]:disabled {
     cursor: pointer;
     transition: transform var(--transition-duration) ease-in-out;
     transform-origin: bottom;
+    width: 60%;
 }
 .sideBtn::after {
     content: "";

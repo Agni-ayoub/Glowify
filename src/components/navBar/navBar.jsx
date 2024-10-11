@@ -10,7 +10,7 @@ function NavBar(props){
     const handleSideNav = ()=>{
         setSideNav(true)
     };    
-    const {auth} = useContext(globalContext); 
+    const {auth, cart} = useContext(globalContext); 
     return(
         <div className="allNav">
             <nav>
@@ -34,7 +34,7 @@ function NavBar(props){
                     <img src={(auth)?auth?.image:"/src/data/icons/account.svg"} className="icon" id={auth?"profileImg":""} />
                     <div className="accountNavText">
                         <p className="userName">
-                            {auth?.firstName} {auth?.lastName}
+                            {!auth? "Login" : `${auth.firstName} ${auth.lastName}`}
                         </p>
                     </div>
                 </NavLink>
@@ -44,7 +44,7 @@ function NavBar(props){
                     <img src="/src/data/icons/bag.svg" className="icon bagIcon"/>
                     <div className="bagNumber">
                         <span>
-                            {0}
+                            {cart?.products?.length}
                         </span>
                     </div>
                     <div className="bagText">

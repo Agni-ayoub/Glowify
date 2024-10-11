@@ -20,14 +20,14 @@ function HomePage(){
             <div onClick={()=>setSideNav(false)} className="blurry"></div>:false
             }
             <NavBar  setSideNav= {setSideNav} sideNav={sideNav} />
+            <Marquee />
+            <FlashSales />
             <div className="homeFi">
                 <HomePageFi />      
             </div>
             <div className={sideNav? "sideNav sideNavOn":"sideNav"} >
                 <SideNav setSideNav = {setSideNav}  sideNav={sideNav}/>
             </div>
-            <Marquee />
-            <FlashSales />
             <Brag />
             <Feature />
             <Fin />

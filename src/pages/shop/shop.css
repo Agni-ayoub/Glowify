@@ -1,3 +1,6 @@
+.shop{
+    position: relative;
+}
 .productContainer{
     margin: 0.5rem;
     margin-top: 1rem;
@@ -14,6 +17,7 @@
     gap: 1rem;
     border: 1px solid #e61f7f6b;
     overflow: hidden;
+    height: 25rem;
 }
 .thumbnail{
     width: 100%;
@@ -193,4 +197,9 @@
     font-weight: 800;
     font-size: small;
     color: rgb(0, 0, 0);
+}
+.productDetails{
+    position: absolute;
+    bottom: 0.6rem;
+    width: 80%;
 }

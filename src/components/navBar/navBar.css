@@ -93,7 +93,7 @@ input[type="search"]{
 .userName{
     width: max-content;
     max-width: 12rem;
-    min-width: 6rem;
+    text-align: center;
 }
 .accountNav:hover, .bagNav:hover{
     transition: 0.6s ease-in-out;
