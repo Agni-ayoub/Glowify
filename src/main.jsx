@@ -6,11 +6,13 @@ import Shop from './pages/shop/shop';
 import { createContext, useEffect, useState, useRef } from 'react';
 import Login from './pages/accout/login/login';
 import axios from './api/axios';
+import ProductDetails from './pages/descreption/discreption';
 export const globalContext = createContext(null);
 
 const Main = () => {
     const [cart, setCart] = useState([]);
     const [auth, setAuth] = useState(null);
+    const [toDetail, setToDetail] = useState([])
     const [loading, setLoading] = useState(false);
     const userId = auth? auth?.id: undefined;
     const flashSectionRef = useRef(null);
@@ -113,10 +115,13 @@ const Main = () => {
         {
             path: "/login",
             element: <Login />
+        },{
+            path: "/productDetails",
+            element: <ProductDetails />
         }
     ]);
     return (
-        <globalContext.Provider value={{cart,setCart, setAuth,auth,setLoading,userId,flashSectionRef}}>
+        <globalContext.Provider value={{cart,setCart, setAuth,auth,setLoading,userId,flashSectionRef, toDetail,setToDetail}}>
             <RouterProvider router={routes} />
         </globalContext.Provider>
     );

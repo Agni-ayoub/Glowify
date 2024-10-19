@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Montserrat:300,400,700,800|Open+Sans:300');
+.dis{
+  position: relative;
+}
+main{ 
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(
+    to right bottom,
+    #e61f7f,
+    #a02ae0,
+    #e61f7f,
+    #5d3be8,
+    #fa0079
+  );
+}
+
+.dcard{
+  box-shadow: 0 6px 6px rgba(#000, 0.3);
+  transition: 200ms;
+  background: #fff;
+  width: 95%;
+  height: 99%;
+  flex-wrap: wrap;
+  .card__title{
+    display: flex;
+    align-items: center;
+    padding: 30px 40px;
+    
+    .dh3{
+      flex: 0 1 200px;
+      text-align: right;
+      margin: 0;
+      color: #252525;
+      font-family: sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+      text-transform: uppercase;
+    }
+    
+    .icon{
+      background: #e61f7f;
+      color: #fff;
+      padding: 10px 10px;
+      transition: 200ms;
+      
+      > a{
+        color: #fff;
+      }
+      
+      &:hover{
+        background: #252525;
+      }
+    }
+  }
+  
+  .card__body{
+    padding: 0 40px;
+    display: flex;
+    flex-flow: row no-wrap;
+    margin-bottom: 10px;
+    gap: 1rem;
+    > .half{
+      box-sizing: border-box;
+      padding: 0 15px;
+      flex: 1 0 50%;
+      border: 1px solid #fa0079;
+      padding: 5px;
+    }
+    
+    .featured_text{
+      h1{
+        margin: 0;
+        padding: 0;
+        font-weight: 800;
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.5rem;
+        line-height: 30px;
+        color: #181e28;
+      }
+      
+      p{ 
+        &.sub{
+          font-family: "Montserrat", sans-serif;
+          font-size: 26px;
+          text-transform: uppercase;
+          color: #fa0079;
+          font-weight: 300;
+          margin-bottom: 5px;
+        }
+        
+        &.price{
+          font-family: "Fjalla One", sans-serif;
+          color: #252525;
+          font-size: 26px;
+        }
+      }
+    }
+    .imageImage{
+      display: flex;
+      justify-content: center;
+    }
+    .image{
+      width: max-content;
+      display: flex;
+      justify-content: center;
+      border: 1px solid #181e28;
+      border-radius: 1rem;
+      position: relative;
+      overflow: hidden;
+      img{
+        display: block;
+        max-width: 15rem;
+        height: auto;
+      }:hover{
+        scale: 1.5;
+        cursor: zoom-in;
+      }
+    }
+    .description{
+      margin-bottom: 25px;
+      letter-spacing: 0.2rem;
+      p{
+        margin: 0;
+        font-family: "Open Sans", sans-serif;
+        font-weight: 300;
+        line-height: 27px;
+        font-size: 16px;
+        color: #000000;
+      }
+    }
+    
+    span.stock{
+      font-family: "Montserrat", sans-serif;
+      font-weight: 600;
+      color: #09ff00;
+    }
+  }
+  
+  .card__footer{
+    padding: 30px 40px;
+    display: flex;
+    flex-flow: row no-wrap;
+    align-items: center;
+    position: relative;
+    justify-content: space-around;
+    width: 100%;
+    &::before{
+      content: "";
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 40px;
+      width: 80%;
+      height: 3px;
+      background: #e61f7f;
+      background: linear-gradient(to right, #e61f7f 0%,#e61f7f 20%,#fa0079 20%,#ddd 100%);
+    }
+    
+    .recommend{      
+      p{
+        margin: 0;
+        font-family: "Montserrat", sans-serif;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 14px;
+        color: #555;
+        min-width: max-content;
+      }
+     
+      .dh3{
+        margin: 0;
+        min-width: max-content;
+        font-size: 25px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #e61f7f;
+      }
+    }
+    
+    .action{
+        display: flex;
+        gap: 0.5rem;
+      button{
+        cursor: pointer;
+        border: 1px solid #e61f7f;
+        padding: 14px 30px;
+        border-radius: 200px;
+        color: #fff;
+        background: #e61f7f;
+        font-family: "Open Sans", sans-serif;
+        font-size: 16px;
+        transition: 200ms;
+        min-width: max-content;
+      }
+      button:hover{
+        scale: 1.1;
+      }
+    }
+  }
+  .firsthalf{
+    max-width: 25rem;
+  }
+  .reviews{
+    display: flex;
+    width: 95%;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+    .review{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+        .reviwerName{
+          position: relative;
+          font-size: 1.2rem;
+          letter-spacing: 0.1rem;
+          width: 25%;
+        }::after{
+          position: absolute;
+          content: ":";
+          right: 0;
+        }
+    }
+    p{
+      display: flex;
+      align-items: center;
+      width: 33.33%;
+      justify-content: space-between;
+    }
+  }
+}

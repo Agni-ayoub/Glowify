@@ -8,7 +8,7 @@ export default function SideNav({ setSideNav }) {
     return (
         <div className="insideSide">
             <div className="notch">
-                <p>Your Cart 0</p>
+                <p>Your Cart {(cart?.products?.length)?cart.products.length:0}</p>
                 <p onClick={() => setSideNav(false)}>Close</p>
             </div>
             <div className="underAll">

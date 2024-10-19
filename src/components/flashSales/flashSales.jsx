@@ -6,11 +6,13 @@ import { FaStarHalfAlt } from "react-icons/fa";
 import { IoHeartOutline } from "react-icons/io5";
 import { addToCart, calcOriginalPrice, formatCountDown, get } from "../../../tools";
 import {globalContext} from "../../main";
+import { useNavigate } from "react-router-dom";
 
 export default function FlashSales(){
     const [flashProducts, setFlashProducts] = useState([]);
     const Base_Url = 'https://dummyjson.com/products/category/beauty';
-    const { userId, setCart, cart , flashSectionRef} = useContext(globalContext);
+    const { userId, setCart, cart , flashSectionRef, setToDetail} = useContext(globalContext);
+    const navigate = useNavigate();
     useEffect(()=>{
         get(setFlashProducts,Base_Url);
     },[])
@@ -24,6 +26,12 @@ export default function FlashSales(){
             clearInterval(intervalId);
         }
     },[]);
+    const handleProduct = (product,e)=>{
+       if(e.target.className !== "productsButton"){
+            setToDetail(product);
+            navigate("/productDetails")
+       }
+    };
     return(
         <div ref={flashSectionRef} className="flashSales">
             <div className="flashSalesAllContainer">
@@ -87,7 +95,7 @@ export default function FlashSales(){
                     {
                         flashProducts.map((p)=>{
                             return(
-                            <div key={p.id} className="flashProduct">
+                            <div onClick={(e)=>handleProduct(p,e)} key={p.id} className="flashProduct">
                                 <div className="flashProductImgDiv">
                                     <img src={p.thumbnail} />
                                     <div

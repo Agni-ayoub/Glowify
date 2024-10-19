@@ -18,11 +18,13 @@
     border: 1px solid #e61f7f6b;
     overflow: hidden;
     height: 25rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.377);
 }
 .thumbnail{
     width: 100%;
     max-height: 15rem;
     min-height: 13rem;
+    border: 1px solid #e61f7f;
 }
 .thumbnail img{
     transition: transform 0.6s ease-in-out;

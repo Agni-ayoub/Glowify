@@ -102,54 +102,88 @@ export const handleAdd = async (elem, setCart, userId) => {
     }
 };
 export const handleTake = async (elem, setCart, userId) => {
-    const originalQuantity = elem.quantity
-    // bdl UI 9bl responce asidi
-    setCart(prevCart => {
-        const updatedProducts = prevCart?.products?.map(p => 
-            p.id === elem.id ? { ...p, quantity: elem.quantity - 1 } : p
-        );
-        return {
-            ...prevCart,
-            products: updatedProducts
-        };
-    });        
-    try {
-        const res = await axios.put(`/carts/${userId}`,
-            JSON.stringify({
-                merge: false,
-                products: [
-                    {
-                        id: elem.id,
-                        quantity: elem.quantity - 1,
-                    },
-                ],
-            }),
-            {
-                headers: { 'Content-Type': 'application/json' },
-            }
-        );
+    const originalQuantity = elem.quantity;
+    if(originalQuantity>1){
+        // bdl UI 9bl responce asidi
+        setCart(prevCart => {
+            const updatedProducts = prevCart?.products?.map(p => 
+                p.id === elem.id ? { ...p, quantity: elem.quantity - 1 } : p
+            );
+            return {
+                ...prevCart,
+                products: updatedProducts
+            };
+        });        
+        try {
+            const res = await axios.put(`/carts/${userId}`,
+                JSON.stringify({
+                    merge: false,
+                    products: [
+                        {
+                            id: elem.id,
+                            quantity: elem.quantity - 1,
+                        },
+                    ],
+                }),
+                {
+                    headers: { 'Content-Type': 'application/json' },
+                }
+            );
 
-        const updatedQuantity = res?.data?.products[0].quantity;
-        if(updatedQuantity){
+            const updatedQuantity = res?.data?.products[0].quantity;
+            if(updatedQuantity){
+                setCart((prevCart) => {
+                    const updatedProducts = prevCart?.products.map((p) =>
+                        p.id === elem.id ? { ...p, quantity: updatedQuantity } : p
+                    );
+                    return { ...prevCart, products: updatedProducts };
+                });
+            }else{
+                console.error('cant reach the server, please try again !')
+            }
+        }catch (error) {
+            console.error("Error updating cart", error);
+            //revert asidi
             setCart((prevCart) => {
                 const updatedProducts = prevCart?.products.map((p) =>
-                    p.id === elem.id ? { ...p, quantity: updatedQuantity } : p
+                    p.id === elem.id ? { ...p, quantity: originalQuantity } : p
                 );
                 return { ...prevCart, products: updatedProducts };
             });
-        }else{
-            console.error('cant reach the server, please try again !')
+            alert("Failed to update cart.seem like the server cant be reached Please try again later.");
         }
-    }catch (error) {
-        console.error("Error updating cart", error);
-        //revert asidi
-        setCart((prevCart) => {
-            const updatedProducts = prevCart?.products.map((p) =>
-                p.id === elem.id ? { ...p, quantity: originalQuantity } : p
-            );
-            return { ...prevCart, products: updatedProducts };
+    }else{
+        setCart(prevCart => {
+            const updatedProducts = prevCart?.products?.filter(p => p.id !== elem.id);
+            return {
+                ...prevCart,
+                products: updatedProducts,
+            };
         });
-        alert("Failed to update cart.seem like the server cant be reached Please try again later.");
+        try {
+            await axios.put(
+                `/carts/${userId}`,
+                JSON.stringify({
+                    merge: false,
+                    products: [
+                        {
+                            id: elem.id,
+                            quantity: 0,
+                        },
+                    ],
+                }),
+                {
+                    headers: { 'Content-Type': 'application/json' },
+                }
+            );
+        } catch (error) {
+            console.error("Error removing product from cart", error);
+            setCart(prevCart => {
+                const updatedProducts = [...prevCart?.products, elem];
+                return { ...prevCart, products: updatedProducts };
+            });
+            alert("Failed to remove product from the cart. Please try again later.");
+        }
     }
 };
 export const addToCart = async(product,cart,setCart,userId)=>{
