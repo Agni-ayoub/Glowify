@@ -5,10 +5,10 @@ import { globalContext } from "../../../main";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-    const [user, setUser] = useState("");
-    const [pwd, setPwd] = useState("");
+    const [user, setUser] = useState("emilys");
+    const [pwd, setPwd] = useState("emilyspass");
     const [errorMsg, setErrorMsg] = useState(null);
-    const { setAuth} = useContext(globalContext);
+    const { setAuth } = useContext(globalContext);
     const navigate = useNavigate();
     const handleSubmit = async (e) => {
         e.preventDefault(); 
